@@ -1,24 +1,14 @@
-import { Component } from 'react'
 import { View, Text } from '@tarojs/components'
+import Weather from '@/components/weather/weather'
 import './index.scss'
 
-export default class Index extends Component {
-
-  componentWillMount () { }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
-
-  render () {
-    return (
-      <View className='index'>
-        <Text>Hello world!</Text>
-      </View>
-    )
-  }
+const Index = () => {
+  return (
+    <View className='index'>
+      <Weather />
+      <Text>Hello world!</Text>
+    </View>
+  )
 }
+
+export default Index

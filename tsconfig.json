@@ -18,6 +18,10 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "resolveJsonModule": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "@env/*": ["./env/*"],
+    },
     "typeRoots": [
       "node_modules/@types",
       "global.d.ts"

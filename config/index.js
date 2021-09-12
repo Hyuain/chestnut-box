@@ -1,3 +1,5 @@
+import path from 'path'
+
 const config = {
   projectName: 'chestnut-box',
   date: '2021-9-12',
@@ -9,6 +11,10 @@ const config = {
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
+  alias: {
+    '@': path.resolve(__dirname, '..', 'src'),
+    '@env': path.resolve(__dirname, '..', 'env'),
+  },
   plugins: [],
   defineConstants: {
   },
