@@ -17,7 +17,6 @@ const Weather = () => {
   const [weather, setWeather] = useState<IWeatherInfo>()
 
   useEffect(() => {
-    console.log("setEffect")
     getAMapLocation()
       .then((location) => {
         return getWeather(location.addressComponent.adcode)
@@ -30,13 +29,11 @@ const Weather = () => {
           temperature: res.temperature,
           humidity: res.humidity,
         })
-        console.log(res)
+      })
+      .catch((e) => {
+        Taro.showToast({ title: e.errMsg })
       })
   }, [])
-
-  if (!weather) {
-    return <View></View>
-  }
 
   return <View className='weather-wrapper'>
     <View>{weather?.province} {weather?.city}</View>
