@@ -1,3 +1,42 @@
+@import 'src/styles/card';
+@import 'src/styles/animations';
+.place-holder {
+  min-height: 200px;
+}
 .weather-wrapper {
-  text-align: center;
+  @extend .card;
+  @extend .place-holder;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  animation: 1s slide-in;
+  .data {
+    display: flex;
+    flex-direction: column;
+    .number {
+      display: flex;
+      align-items: baseline;
+      .temperature {
+        font-weight: bold;
+        font-size: 52px;
+        margin-right: 16px;
+      }
+      .humidity {
+        opacity: .7;
+      }
+    }
+    .text {
+      margin-top: 16px;
+      opacity: .7;
+      display: flex;
+      font-size: 24px;
+      .city {
+        margin-right: 20px;
+      }
+    }
+  }
+  .img {
+
+  }
 }

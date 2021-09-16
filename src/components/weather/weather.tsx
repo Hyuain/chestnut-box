@@ -35,12 +35,23 @@ const Weather = () => {
       })
   }, [])
 
-  return <View className='weather-wrapper'>
-    <View>{weather?.province} {weather?.city}</View>
-    <View>{weather?.description}</View>
-    <View>{weather?.temperature}℃</View>
-    <View>{weather?.humidity}%</View>
-  </View>
+  return weather?.temperature
+    ? (
+      <View className='weather-wrapper'>
+        <View className='data'>
+          <View className='number'>
+            <View className='temperature'>{weather?.temperature}℃</View>
+            <View className='humidity'>{weather?.humidity}%</View>
+          </View>
+          <View className='text'>
+            <View className='city'>{weather?.province} {weather?.city}</View>
+            <View className='description'>{weather?.description}</View>
+          </View>
+        </View>
+        <View className='img'>这里应该有张图片</View>
+      </View>
+    )
+    : <View className='place-holder' />
 }
 
 export default Weather

@@ -1,0 +1,53 @@
+@import "src/styles/card";
+
+.index {
+  height: 100vh;
+  background-color: #eee;
+  padding: 120px 60px 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  .body {
+    flex: 1;
+  }
+  .bottom {
+    margin: 0 -60px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    border-top-left-radius: 32px;
+    border-top-right-radius: 32px;
+  }
+}
+.date-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .date {
+    font-size: 64px;
+    font-weight: bold;
+  }
+  .motto {
+    margin-top: 16px;
+  }
+}
+.row {
+  margin-top: 40px;
+}
+.common-card {
+  @extend .card;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: 1s slide-in;
+}
+.final-tip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  opacity: .7;
+}
