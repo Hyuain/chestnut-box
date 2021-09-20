@@ -1,8 +1,19 @@
-import { View } from '@tarojs/components'
-import Weather from '@/components/weather/weather'
-import './index.scss'
+import { View } from "@tarojs/components"
+import Weather from "@/components/weather/weather"
+import Icon from "@/components/icon/icon"
+import Taro from "@tarojs/taro"
+import { useCallback } from "react"
+import "./index.scss"
 
 const Index = () => {
+
+  const handleStartAccounting = useCallback(() => {
+    console.log("xxx!")
+    Taro.navigateTo({
+      url: "/pages/accounting/accounting"
+    }).then()
+  }, [])
+
   return (
     <View className='index'>
       <View className='body'>
@@ -20,7 +31,13 @@ const Index = () => {
           更多模组开发中……
         </View>
       </View>
-      <View className='bottom'>底部区域开发中</View>
+      <View className='bottom'>
+        <View>我的</View>
+        <View onClick={handleStartAccounting} className='center-button'>
+          <Icon name='plus' fontSize={56} />
+        </View>
+        <View>全部</View>
+      </View>
     </View>
   )
 }

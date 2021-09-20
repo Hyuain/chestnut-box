@@ -7,35 +7,47 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  overflow: hidden;
   .body {
     flex: 1;
+    .row {
+      margin-top: 40px;
+    }
+    .date-box {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .date {
+        font-size: 64px;
+        font-weight: bold;
+      }
+      .motto {
+        margin-top: 16px;
+      }
+    }
   }
   .bottom {
     margin: 0 -60px;
     height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-color: #ffffff;
     border-top-left-radius: 32px;
     border-top-right-radius: 32px;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    .center-button {
+      height: 96px;
+      width: 96px;
+      border-radius: 50%;
+      border: 4px solid #333;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
-}
-.date-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  .date {
-    font-size: 64px;
-    font-weight: bold;
-  }
-  .motto {
-    margin-top: 16px;
-  }
-}
-.row {
-  margin-top: 40px;
 }
 .common-card {
   @extend .card;

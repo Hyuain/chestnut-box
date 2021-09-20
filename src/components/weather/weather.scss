@@ -19,7 +19,7 @@
       align-items: baseline;
       .temperature {
         font-weight: bold;
-        font-size: 52px;
+        font-size: 60px;
         margin-right: 16px;
       }
       .humidity {
@@ -27,7 +27,6 @@
       }
     }
     .text {
-      margin-top: 16px;
       opacity: .7;
       display: flex;
       font-size: 24px;
