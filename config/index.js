@@ -24,6 +24,11 @@ const config = {
     options: {
     }
   },
+  sass: {
+    resource: [
+      path.resolve(__dirname, '..', 'src/styles/variables.scss')
+    ]
+  },
   framework: 'react',
   mini: {
     postcss: {

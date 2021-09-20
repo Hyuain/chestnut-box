@@ -1,4 +1,5 @@
 export default {
-  navigationBarTitleText: '首页',
-  navigationStyle: 'custom'
+  navigationBarTitleText: '记一笔',
+  navigationStyle: 'custom',
+  disableScroll: true,
 }

@@ -1,0 +1,17 @@
+.common-textarea {
+  border-radius: 32px;
+  border: 4px solid $primary-color-dark;
+  background-color: #fff;
+  overflow: hidden;
+  .date {
+    display: inline-block;
+    font-size: 36px;
+    color: #fff;
+    background-color: $primary-color-dark;
+    border-bottom-right-radius: 20px;
+    padding: 8px 16px;
+  }
+  .textarea-wrapper {
+    padding: 24px 16px;
+  }
+}

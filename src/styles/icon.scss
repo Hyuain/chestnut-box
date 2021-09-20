@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2821225 */
-  src: url('//at.alicdn.com/t/font_2821225_kstcea8gxn.woff2?t=1631891097522') format('woff2'),
-  url('//at.alicdn.com/t/font_2821225_kstcea8gxn.woff?t=1631891097522') format('woff'),
-  url('//at.alicdn.com/t/font_2821225_kstcea8gxn.ttf?t=1631891097522') format('truetype');
+  src: url('//at.alicdn.com/t/font_2821225_ggcajhtaoai.woff2?t=1632131260221') format('woff2'),
+  url('//at.alicdn.com/t/font_2821225_ggcajhtaoai.woff?t=1632131260221') format('woff'),
+  url('//at.alicdn.com/t/font_2821225_ggcajhtaoai.ttf?t=1632131260221') format('truetype');
 }
 
 .iconfont {
@@ -13,10 +13,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-plus:before {
-  content: "\e6af";
+.icon-image:before {
+  content: "\e70a";
 }
 
-.icon-plus-circle:before {
-  content: "\e75a";
+.icon-cancel:before {
+  content: "\e710";
+}
+
+.icon-minus:before {
+  content: "\e711";
+}
+
+.icon-plus:before {
+  content: "\e712";
+}
+
+.icon-confirm:before {
+  content: "\e714";
 }
