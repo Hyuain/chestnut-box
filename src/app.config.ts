@@ -1,7 +1,7 @@
 export default {
   pages: [
     'pages/index/index',
-    'pages/accounting/accounting'
+    'pages/accounting-page/accounting-page'
   ],
   window: {
     backgroundTextStyle: 'light',

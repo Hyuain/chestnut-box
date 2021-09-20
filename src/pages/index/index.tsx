@@ -8,9 +8,8 @@ import "./index.scss"
 const Index = () => {
 
   const handleStartAccounting = useCallback(() => {
-    console.log("xxx!")
     Taro.navigateTo({
-      url: "/pages/accounting/accounting"
+      url: "/pages/accounting-page/accounting-page"
     }).then()
   }, [])
 

@@ -1,21 +1,30 @@
 import CommonTextarea from '@/components/common-textarea/common-textarea'
 import Icon from '@/components/icon/icon'
 import RoundActionButton from '@/components/round-action-button/round-action-button'
+import { Category, Type } from '@/models/accounting'
+import { getClassNames } from '@/utils/utils'
 import { Input, View } from '@tarojs/components'
 import { useState } from 'react'
-import './accounting.scss'
+import './accounting-page.scss'
 
-const Accounting = () => {
+const AccountingPage = () => {
 
-  const [categories] = useState<Accounting.Category[]>(
+  const [categories] = useState<Category[]>(
     [{ id: 1, icon: 'plus', name: '哈哈' }, { id: 1, icon: 'plus', name: '哈哈' }, { id: 1, icon: 'plus', name: '哈哈' }, { id: 1, icon: 'plus', name: '哈哈' }, { id: 1, icon: 'plus', name: '哈哈' }, { id: 1, icon: 'plus', name: '哈哈' }]
   )
+  const [currentType, setCurrenType] = useState<Type>(Type.OUTCOME)
 
   return (
     <View className='accounting-page'>
       <View className='types'>
-        <View className='type'>支出</View>
-        <View className='type active'>收入</View>
+        <View
+          className={getClassNames({ 'type': true, 'active': currentType === Type.OUTCOME })}
+          onClick={() => setCurrenType(Type.OUTCOME)}
+        >支出</View>
+        <View
+          className={getClassNames({ 'type': true, 'active': currentType === Type.INCOME })}
+          onClick={() => setCurrenType(Type.INCOME)}
+        >收入</View>
       </View>
       <Categories categories={categories} />
       <MoneyInput />
@@ -27,7 +36,7 @@ const Accounting = () => {
   )
 }
 
-const Categories = (props: { categories: Accounting.Category[] }) => {
+const Categories = (props: { categories: Category[] }) => {
   return <View className='categories-wrapper'>
     {props.categories.map((cat) => {
       return (
@@ -49,4 +58,4 @@ const MoneyInput = () => {
   </View>
 }
 
-export default Accounting
+export default AccountingPage
