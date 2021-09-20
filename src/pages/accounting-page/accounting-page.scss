@@ -43,16 +43,22 @@
     align-items: center;
     padding: 16px 0;
     .category-icon {
-      border: 2px solid $primary-color-dark;
+      background-color: $primary-color;
+      color: $primary-color-darker;
       border-radius: 50%;
-      width: 64px;
-      height: 64px;
+      width: 80px;
+      height: 80px;
       display: flex;
       justify-content: center;
       align-items: center;
+      &.active {
+        background-color: $primary-color-darker;
+        color: #fff;
+      }
     }
     .category-name {
-
+      color: $primary-color-darker;
+      font-size: 32px;
     }
   }
 }

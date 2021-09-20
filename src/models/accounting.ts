@@ -1,11 +1,11 @@
 export const enum Type {
-  INCOME = 1,
-  OUTCOME,
+  OUTCOME = 1,
+  INCOME,
 }
 
 export interface Category {
   id?: number
-  frontId?: number
   name: string
   icon: string
+  type: Type
 }

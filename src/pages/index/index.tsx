@@ -1,9 +1,10 @@
-import { View } from "@tarojs/components"
-import Weather from "@/components/weather/weather"
-import Icon from "@/components/icon/icon"
-import Taro from "@tarojs/taro"
-import { useCallback } from "react"
-import "./index.scss"
+import Icon from '@/components/icon/icon'
+import Weather from '@/components/weather/weather'
+import { getFriendlyTime } from '@/utils/utils'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import { useCallback } from 'react'
+import './index.scss'
 
 const Index = () => {
 
@@ -17,7 +18,7 @@ const Index = () => {
     <View className='index'>
       <View className='body'>
         <View className='date-box'>
-          <View className='date'>{new Date().getMonth() + 1}月{new Date().getDate()}日</View>
+          <View className='date'>{getFriendlyTime(new Date())}</View>
           <View className='motto'>今天也要保持好心情哦~</View>
         </View>
         <View className='row'>

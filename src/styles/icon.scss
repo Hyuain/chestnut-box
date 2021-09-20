@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2821225 */
-  src: url('//at.alicdn.com/t/font_2821225_ggcajhtaoai.woff2?t=1632131260221') format('woff2'),
-  url('//at.alicdn.com/t/font_2821225_ggcajhtaoai.woff?t=1632131260221') format('woff'),
-  url('//at.alicdn.com/t/font_2821225_ggcajhtaoai.ttf?t=1632131260221') format('truetype');
+  src: url('//at.alicdn.com/t/font_2821225_jphxt34e0ai.woff2?t=1632148266203') format('woff2'),
+  url('//at.alicdn.com/t/font_2821225_jphxt34e0ai.woff?t=1632148266203') format('woff'),
+  url('//at.alicdn.com/t/font_2821225_jphxt34e0ai.ttf?t=1632148266203') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,42 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-vehicle:before {
+  content: "\e61e";
+}
+
+.icon-food:before {
+  content: "\e606";
+}
+
+.icon-salary:before {
+  content: "\e60c";
+}
+
+.icon-shopping:before {
+  content: "\e616";
+}
+
+.icon-other-income:before {
+  content: "\e629";
+}
+
+.icon-education:before {
+  content: "\e635";
+}
+
+.icon-other-outcome:before {
+  content: "\e636";
+}
+
+.icon-medical:before {
+  content: "\e637";
+}
+
+.icon-housing:before {
+  content: "\e63b";
 }
 
 .icon-image:before {

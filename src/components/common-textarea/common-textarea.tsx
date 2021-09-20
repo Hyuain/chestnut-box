@@ -1,12 +1,20 @@
 import { Textarea, View } from '@tarojs/components'
+import { TextareaProps } from '@tarojs/components/types/Textarea'
+import { ReactNode } from 'react'
 import './common-textarea.scss'
 
-const CommonTextarea = () => {
+interface IProps extends TextareaProps {
+  badge?: ReactNode
+}
+
+const CommonTextarea = (props: IProps) => {
+
   return (
     <View className='common-textarea'>
-      <View className='date'>9月21日</View>
+      {props.badge ? <View className='badge'>{props.badge}</View> : <></>}
       <View className='textarea-wrapper'>
-        <Textarea className='textarea' />
+        <Textarea className='textarea' showConfirmBar={false} {...props}>
+        </Textarea>
       </View>
     </View>
   )
