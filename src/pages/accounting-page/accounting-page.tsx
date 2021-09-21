@@ -53,7 +53,7 @@ const AccountingPage = () => {
       title: '正在开发中',
       content: `类型：${currentType}，金额：${Number(money)}，分类：${currentCategory?.name}，内容：${content}，时间 ${dateString}`,
     })
-  }, [content, money, currentCategory, currentType])
+  }, [content, money, currentCategory, currentType, dateString])
 
   const handleChangeDate = useCallback((e: BaseEventOrig<PickerTimeProps.ChangeEventDetail>) =>{
     setDateString(e.detail.value)
