@@ -1,7 +1,8 @@
 export default {
   pages: [
     'pages/index/index',
-    'pages/accounting-page/accounting-page'
+    'pages/accounting-page/accounting-page',
+    'pages/accounting-records/accounting-records'
   ],
   window: {
     backgroundTextStyle: 'light',

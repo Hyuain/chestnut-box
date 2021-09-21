@@ -11,9 +11,32 @@ const enum Tab {
   ALL,
 }
 
+interface CardAction {
+  name: string
+  handler: () => void
+}
+
+interface Card {
+  icon: string
+  name: string
+  actions: CardAction[]
+}
+
 const Index = () => {
 
   const [currentTab, setCurrentTab] = useState(Tab.MY)
+  const [allCards] = useState<Card[]>([
+    {
+      name: '记账', icon: 'accounting',
+      actions: [
+        {
+          name: '查看记录', handler: () => Taro.navigateTo({
+            url: '/pages/accounting-records/accounting-records'
+          }),
+        },
+      ],
+    },
+  ])
 
   const handleStartAccounting = useCallback(() => {
     Taro.navigateTo({
@@ -23,7 +46,7 @@ const Index = () => {
 
   return (
     <View className='index'>
-      {currentTab === Tab.MY ? <MyCards /> : <AllCards />}
+      {currentTab === Tab.MY ? <MyCards /> : <AllCards allCards={allCards} />}
       <View className='bottom'>
         <View
           className={getClassNames({ 'side-button': true, 'active': currentTab === Tab.MY })}
@@ -63,18 +86,25 @@ const DateBox = () => {
   </View>
 }
 
-const AllCards = () => {
+const AllCards = (props: { allCards: Card[] }) => {
   return <View className='all-cards'>
     <View className='title'>
       <View className='title-icon'><Icon name='accounting' fontSize={56} /></View>
       <View className='title-text'>记账</View>
     </View>
-    <View className='card'>
-      <View className='action'>
-        <View className='action-decorator'><Icon name='point' fontSize={52} /></View>
-        <View className='action-name'>查看记录</View>
-      </View>
-    </View>
+    {
+      props.allCards.map((card) => <View key={card.name} className='card'>
+        {card.actions.map((action) => <Action key={action.name} action={action} />)}
+      </View>)
+    }
+
+  </View>
+}
+
+const Action = (props: { action: CardAction }) => {
+  return <View onClick={props.action.handler} className='action'>
+    <View className='action-decorator'><Icon name='point' fontSize={52} /></View>
+    <View className='action-name'>{props.action.name}</View>
   </View>
 }
 
