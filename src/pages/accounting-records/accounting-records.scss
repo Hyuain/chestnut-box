@@ -1,5 +1,31 @@
 .accounting-records {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: $bg-color-light;
+  min-height: 100vh;
 }
+.month-selector {
+  width: 100%;
+  .scroll-view {
+    background-color: #fff;
+    white-space: nowrap;
+    .year-title, .month {
+      display: inline-block;
+    }
+    .year-title {
+      margin-left: 32px;
+    }
+    .month {
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      margin: 32px 32px;
+      text-align: center;
+      background-color: $primary-color-dark;
+      border-radius: 50%;
+      color: #fff;
+      &.active {
+        background-color: $primary-color-darker;
+      }
+    }
+  }
+}
+
