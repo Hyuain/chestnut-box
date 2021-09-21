@@ -1,8 +1,10 @@
-import { View } from "@tarojs/components"
-import { useEffect, useState } from "react"
-import { getWeather } from "@/services/weather"
-import { getAMapLocation } from "@/services/geography"
-import "./weather.scss"
+import { getAMapLocation } from '@/services/geography'
+import { getWeather } from '@/services/weather'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import { useEffect, useState } from 'react'
+import './weather.scss'
+
 
 interface IWeatherInfo {
   province: string
@@ -31,7 +33,7 @@ const Weather = () => {
         })
       })
       .catch((e) => {
-        Taro.showToast({ title: e.errMsg })
+        Taro.showToast({ title: e.errMsg, icon: 'none' })
       })
   }, [])
 

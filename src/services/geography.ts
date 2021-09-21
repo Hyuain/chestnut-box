@@ -4,8 +4,12 @@ import env from "@env/env.prod"
 
 const URL = "https://restapi.amap.com/v3/geocode/regeo"
 
+let location: getLocation.SuccessCallbackResult
+
 export const getAMapLocation = async () => {
-  const location = await getLocation({})
+  if (!location) {
+    location = await getLocation({})
+  }
   return parseLocation(location)
 }
 
