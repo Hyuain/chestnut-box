@@ -113,7 +113,6 @@ const AllCards = (props: { allCards: Card[] }) => {
         {card.actions.map((action) => <Action key={action.name} action={action} />)}
       </View>)
     }
-
   </View>
 }
 
