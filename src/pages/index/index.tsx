@@ -1,7 +1,8 @@
 import Icon from '@/components/icon/icon'
 import Weather from '@/components/weather/weather'
 import { getClassNames, getFriendlyTime } from '@/utils/utils'
-import { View } from '@tarojs/components'
+import { BaseEventOrig, Swiper, SwiperItem, View } from '@tarojs/components'
+import { SwiperProps } from '@tarojs/components/types/Swiper'
 import Taro from '@tarojs/taro'
 import { useCallback, useState } from 'react'
 import './index.scss'
@@ -25,10 +26,20 @@ interface Card {
 const Index = () => {
 
   const [currentTab, setCurrentTab] = useState(Tab.MY)
+
+  const handleStartAccounting = useCallback(() => {
+    Taro.navigateTo({
+      url: '/pages/accounting-page/accounting-page',
+    }).then()
+  }, [])
+
   const [allCards] = useState<Card[]>([
     {
       name: '记账', icon: 'accounting',
       actions: [
+        {
+          name: '记一笔', handler: handleStartAccounting,
+        },
         {
           name: '查看记录', handler: () => Taro.navigateTo({
             url: '/pages/accounting-records/accounting-records'
@@ -38,15 +49,20 @@ const Index = () => {
     },
   ])
 
-  const handleStartAccounting = useCallback(() => {
-    Taro.navigateTo({
-      url: '/pages/accounting-page/accounting-page',
-    }).then()
+  const handleTabChange = useCallback((e: BaseEventOrig<SwiperProps.onChangeEventDetail>) => {
+    setCurrentTab(e.detail.current ? Tab.ALL : Tab.MY)
   }, [])
 
   return (
     <View className='index'>
-      {currentTab === Tab.MY ? <MyCards /> : <AllCards allCards={allCards} />}
+      <Swiper
+        className='body-swiper'
+        current={currentTab === Tab.MY ? 0 : 1}
+        onChange={handleTabChange}
+      >
+        <SwiperItem className='body-swiper-item'><MyCards /></SwiperItem>
+        <SwiperItem className='body-swiper-item'><AllCards allCards={allCards} /></SwiperItem>
+      </Swiper>
       <View className='bottom'>
         <View
           className={getClassNames({ 'side-button': true, 'active': currentTab === Tab.MY })}
