@@ -25,7 +25,7 @@ interface Card {
 
 const Index = () => {
 
-  const [currentTab, setCurrentTab] = useState(Tab.MY)
+  const [currentTab, setCurrentTab] = useState(Tab.ALL)
 
   const handleStartAccounting = useCallback(() => {
     Taro.navigateTo({
@@ -42,7 +42,7 @@ const Index = () => {
         },
         {
           name: '查看记录', handler: () => Taro.navigateTo({
-            url: '/pages/accounting-records/accounting-records'
+            url: '/pages/accounting-records/accounting-records',
           }),
         },
       ],
@@ -104,15 +104,28 @@ const DateBox = () => {
 
 const AllCards = (props: { allCards: Card[] }) => {
   return <View className='all-cards'>
-    <View className='title'>
-      <View className='title-icon'><Icon name='accounting' fontSize={56} /></View>
-      <View className='title-text'>记账</View>
-    </View>
+    <UserCard />
     {
-      props.allCards.map((card) => <View key={card.name} className='card'>
-        {card.actions.map((action) => <Action key={action.name} action={action} />)}
+      props.allCards.map((card) => <View className='each-card' key={card.name}>
+        <View className='title'>
+          <View className='title-icon'><Icon name='accounting' fontSize={56} /></View>
+          <View className='title-text'>记账</View>
+        </View>
+        <View className='content'>
+          {card.actions.map((action) => <Action key={action.name} action={action} />)}
+        </View>
       </View>)
     }
+  </View>
+}
+
+const UserCard = () => {
+  return <View className='user-card'>
+    <View className='avatar' />
+    <View className='text'>
+      <View className='nickname'>栗子海鲜酱</View>
+      <View className='uid'>UID: 1</View>
+    </View>
   </View>
 }
 

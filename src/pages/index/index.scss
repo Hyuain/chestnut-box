@@ -14,7 +14,7 @@
     }
   }
   .my-cards {
-    padding: 120px 60px 60px;
+    padding: 140px 60px 60px;
     .row {
       margin-top: 40px;
     }
@@ -33,30 +33,53 @@
     }
   }
   .all-cards {
-    padding: 120px 60px 60px;
-    .title {
+    padding: 140px 60px 60px;
+    .user-card {
+      @extend .card;
       display: flex;
-      align-items: baseline;
-      margin-left: 8px;
-      .title-icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: $primary-color-dark;
-        color: #fff;
-        border-radius: 16px;
-        width: 60px;
-        height: 60px;
-        margin-right: 16px;
+      align-items: center;
+      .avatar {
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+        border: 1px solid $primary-color-darker;
+        border-radius: 50%;
+        margin-right: 32px;
+      }
+      .text {
+        .uid {
+          font-size: 32px;
+          color: $primary-color-dark;
+        }
       }
     }
-    .card {
-      margin-top: 20px;
-      .action {
+    .each-card {
+      margin-top: 60px;
+      .title {
         display: flex;
-        align-items: center;
-        .action-decorator {
+        align-items: baseline;
+        margin-left: 8px;
+        .title-icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: $primary-color-dark;
+          color: #fff;
+          border-radius: 16px;
+          width: 60px;
+          height: 60px;
           margin-right: 16px;
+        }
+      }
+      .content {
+        @extend .card;
+        margin-top: 20px;
+        .action {
+          display: flex;
+          align-items: center;
+          .action-decorator {
+            margin-right: 16px;
+          }
         }
       }
     }
