@@ -1,6 +1,10 @@
+@import "src/styles/card";
+
 .accounting-records {
   background-color: $bg-color-light;
   min-height: 100vh;
+  color: $primary-color-darkest;
+  padding-bottom: 40px;
 }
 .month-selector {
   width: 100%;
@@ -17,7 +21,7 @@
       width: 100px;
       height: 100px;
       line-height: 100px;
-      margin: 32px 32px;
+      margin: 32px 16px;
       text-align: center;
       background-color: $primary-color-dark;
       border-radius: 50%;
@@ -28,4 +32,67 @@
     }
   }
 }
+.total {
+  background-color: #fff;
+  padding: 16px 32px;
+  color: $primary-color-dark;
+  border: 2px solid $primary-color-darkest;
+  border-left: none;
+  border-right: none;
+  :nth-child(n) {
+    display: inline-block;
+  }
+  :first-child {
+    margin-right: 40px;
+  }
+}
+.day-card {
+  @extend .card;
+  margin: 30px 60px;
+  padding: 0;
+  overflow: hidden;
+  .title {
+    background-color: $primary-color-dark;
+    color: #fff;
+    padding: 8px 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .record {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+    &:not(:last-child) > .detail {
+      border-bottom: 2px solid $primary-color-dark;
+    }
+    .detail {
+      padding: 24px 0;
+      margin-left: 16px;
+      display: flex;
+      flex: 1;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 100%;
+      overflow: hidden;
+      .text {
+        flex: 1;
+        max-width: 100%;
+        overflow: hidden;
+        .category-name {
 
+        }
+        .record-content {
+          max-width: 100%;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          font-size: 32px;
+          color: $primary-color-dark;
+        }
+      }
+      .money {
+
+      }
+    }
+  }
+}

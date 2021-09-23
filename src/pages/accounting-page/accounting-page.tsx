@@ -1,5 +1,5 @@
+import CategoryIcon from '@/components/category-icon/category-icon'
 import CommonTextarea from '@/components/common-textarea/common-textarea'
-import Icon from '@/components/icon/icon'
 import RoundActionButton from '@/components/round-action-button/round-action-button'
 import { Category, Type } from '@/models/accounting'
 import { getClassNames, getFriendlyTime } from '@/utils/utils'
@@ -98,9 +98,7 @@ const Categories = (props: {
     {props.categories.map((cat) => {
       return (
         <View key={cat.id} onClick={() => props.onChangeCategory(cat)} className='category'>
-          <View className={getClassNames({ 'category-icon': true, 'active': props.current?.id === cat.id })}>
-            <Icon name={cat.icon} fontSize={52} />
-          </View>
+          <CategoryIcon icon={cat.icon} active={props.current?.id === cat.id} />
           <View className='category-name'>{cat.name}</View>
         </View>
       )

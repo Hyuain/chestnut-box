@@ -1,0 +1,14 @@
+.category-icon {
+  background-color: $primary-color;
+  color: $primary-color-darker;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.active {
+    background-color: $primary-color-darker;
+    color: #fff;
+  }
+}

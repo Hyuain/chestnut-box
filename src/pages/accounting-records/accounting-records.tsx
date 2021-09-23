@@ -1,3 +1,4 @@
+import CategoryIcon from '@/components/category-icon/category-icon'
 import { getClassNames } from '@/utils/utils'
 import { ScrollView, View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
@@ -24,6 +25,11 @@ const AccountingRecords = () => {
       currentMonth={currentMonth}
       onMonthChange={(year, month) => setCurrentMonth({ year, month })}
     />
+    <View className='total'>
+      <View>月支出 10.00</View>
+      <View>月收入 99999.99</View>
+    </View>
+    {[1, 2, 3, 4].map(() => <DayCard />)}
   </View>
 }
 
@@ -89,6 +95,29 @@ const MonthSelector = (props: {
         })
       }
     </ScrollView>
+  </View>
+}
+
+const DayCard = () => {
+  return <View className='day-card'>
+    <View className='title'>
+      <View>8月27日</View>
+      <View>-5.00  +999.00</View>
+    </View>
+    {[1, 2, 3, 4].map(() => <Record />)}
+  </View>
+}
+
+const Record = () => {
+  return <View className='record'>
+    <CategoryIcon icon='education' />
+    <View className='detail'>
+      <View className='text'>
+        <View className='category-name'>交通</View>
+        <View className='record-content'>地铁地铁地铁地铁地铁地铁地铁地铁地铁地铁地铁地铁地铁地铁地铁地铁地铁地铁</View>
+      </View>
+      <View className='money'>-5.00</View>
+    </View>
   </View>
 }
 
