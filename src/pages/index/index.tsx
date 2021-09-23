@@ -41,7 +41,7 @@ const Index = () => {
           name: '记一笔', handler: handleStartAccounting,
         },
         {
-          name: '查看记录', handler: () => Taro.navigateTo({
+          name: '查看历史', handler: () => Taro.navigateTo({
             url: '/pages/accounting-records/accounting-records',
           }),
         },

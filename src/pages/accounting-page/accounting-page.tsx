@@ -2,7 +2,7 @@ import CategoryIcon from '@/components/category-icon/category-icon'
 import CommonTextarea from '@/components/common-textarea/common-textarea'
 import RoundActionButton from '@/components/round-action-button/round-action-button'
 import { Category, Type } from '@/models/accounting'
-import { getClassNames, getFriendlyTime } from '@/utils/utils'
+import { formatTime, getClassNames, getFriendlyTime } from '@/utils/utils'
 import { Input, Picker, View } from '@tarojs/components'
 import { BaseEventOrig } from '@tarojs/components/types/common'
 import { InputProps } from '@tarojs/components/types/Input'
@@ -33,7 +33,7 @@ const AccountingPage = () => {
   const [money, setMoney] = useState<string>()
   const [content, setContent] = useState<string>()
   const [currentCategory, setCurrentCategory] = useState<Category>()
-  const [dateString, setDateString] = useState<string>(new Date().toLocaleDateString().replace(/\//g, '-'))
+  const [dateString, setDateString] = useState<string>(formatTime(Date.now()))
 
   const handleInputMoney = useCallback((e: BaseEventOrig<InputProps.inputEventDetail>) => {
     setMoney(e.detail.value)
@@ -48,16 +48,16 @@ const AccountingPage = () => {
     setCurrentCategory(undefined)
   }, [])
 
+  const handleChangeDate = useCallback((e: BaseEventOrig<PickerTimeProps.ChangeEventDetail>) =>{
+    setDateString(e.detail.value)
+  }, [])
+
   const handleConfirm = useCallback(() => {
     Taro.showModal({
       title: '正在开发中',
       content: `类型：${currentType}，金额：${Number(money)}，分类：${currentCategory?.name}，内容：${content}，时间 ${dateString}`,
     })
   }, [content, money, currentCategory, currentType, dateString])
-
-  const handleChangeDate = useCallback((e: BaseEventOrig<PickerTimeProps.ChangeEventDetail>) =>{
-    setDateString(e.detail.value)
-  }, [])
 
   return (
     <View className='accounting-page'>
